@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            LlisatNumeros = new ListBox();
+            LlisaNumeros = new ListBox();
             label1 = new Label();
             tBDesde = new TextBox();
-            tBAsta = new TextBox();
+            tBHasta = new TextBox();
             lDesde = new Label();
             Hasta = new Label();
             BGenerarFuncion = new Button();
             SuspendLayout();
             // 
-            // LlisatNumeros
+            // LlisaNumeros
             // 
-            LlisatNumeros.FormattingEnabled = true;
-            LlisatNumeros.ItemHeight = 15;
-            LlisatNumeros.Location = new Point(348, 88);
-            LlisatNumeros.Name = "LlisatNumeros";
-            LlisatNumeros.Size = new Size(163, 229);
-            LlisatNumeros.TabIndex = 0;
-            LlisatNumeros.SelectedIndexChanged += LlisatNumeros_SelectedIndexChanged;
+            LlisaNumeros.FormattingEnabled = true;
+            LlisaNumeros.ItemHeight = 15;
+            LlisaNumeros.Location = new Point(322, 82);
+            LlisaNumeros.Name = "LlisaNumeros";
+            LlisaNumeros.Size = new Size(163, 229);
+            LlisaNumeros.TabIndex = 0;
+            
             // 
             // label1
             // 
@@ -58,22 +58,24 @@
             // 
             // tBDesde
             // 
-            tBDesde.Location = new Point(91, 91);
+            tBDesde.Location = new Point(90, 89);
             tBDesde.Name = "tBDesde";
             tBDesde.Size = new Size(97, 23);
             tBDesde.TabIndex = 2;
+            tBDesde.KeyPress += tBDesde_KeyPress;
             // 
-            // tBAsta
+            // tBHasta
             // 
-            tBAsta.Location = new Point(91, 131);
-            tBAsta.Name = "tBAsta";
-            tBAsta.Size = new Size(98, 23);
-            tBAsta.TabIndex = 3;
+            tBHasta.Location = new Point(89, 123);
+            tBHasta.Name = "tBHasta";
+            tBHasta.Size = new Size(98, 23);
+            tBHasta.TabIndex = 3;
+            tBHasta.KeyPress += tBHasta_KeyPress;
             // 
             // lDesde
             // 
             lDesde.AutoSize = true;
-            lDesde.Location = new Point(37, 91);
+            lDesde.Location = new Point(28, 89);
             lDesde.Name = "lDesde";
             lDesde.Size = new Size(39, 15);
             lDesde.TabIndex = 4;
@@ -82,7 +84,7 @@
             // Hasta
             // 
             Hasta.AutoSize = true;
-            Hasta.Location = new Point(39, 134);
+            Hasta.Location = new Point(19, 123);
             Hasta.Name = "Hasta";
             Hasta.Size = new Size(37, 15);
             Hasta.TabIndex = 5;
@@ -90,13 +92,14 @@
             // 
             // BGenerarFuncion
             // 
-            BGenerarFuncion.BackColor = SystemColors.ActiveCaption;
-            BGenerarFuncion.Location = new Point(210, 91);
+            BGenerarFuncion.ForeColor = SystemColors.HotTrack;
+            BGenerarFuncion.Location = new Point(205, 89);
             BGenerarFuncion.Name = "BGenerarFuncion";
-            BGenerarFuncion.Size = new Size(122, 26);
+            BGenerarFuncion.Size = new Size(111, 25);
             BGenerarFuncion.TabIndex = 6;
             BGenerarFuncion.Text = "Generar Funcion";
-            BGenerarFuncion.UseVisualStyleBackColor = false;
+            BGenerarFuncion.UseVisualStyleBackColor = true;
+            BGenerarFuncion.Click += BGenerarFuncion_Click;
             // 
             // Form1
             // 
@@ -106,10 +109,10 @@
             Controls.Add(BGenerarFuncion);
             Controls.Add(Hasta);
             Controls.Add(lDesde);
-            Controls.Add(tBAsta);
+            Controls.Add(tBHasta);
             Controls.Add(tBDesde);
             Controls.Add(label1);
-            Controls.Add(LlisatNumeros);
+            Controls.Add(LlisaNumeros);
             Name = "Form1";
             Text = "Formulario4";
             ResumeLayout(false);
@@ -118,10 +121,10 @@
 
         #endregion
 
-        private ListBox LlisatNumeros;
+        private ListBox LlisaNumeros;
         private Label label1;
         private TextBox tBDesde;
-        private TextBox tBAsta;
+        private TextBox tBHasta;
         private Label lDesde;
         private Label Hasta;
         private Button BGenerarFuncion;
