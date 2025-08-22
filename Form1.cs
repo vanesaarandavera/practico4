@@ -6,5 +6,10 @@ namespace practico4
         {
             InitializeComponent();
         }
+
+        private void LlisatNumeros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
