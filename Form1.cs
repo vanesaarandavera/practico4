@@ -17,7 +17,7 @@ namespace practico4
             }
         }
 
-        
+
         private void tBDesde_KeyPress(object sender, KeyPressEventArgs e)
         {
             ValidarSoloNumeros(e);
@@ -26,7 +26,7 @@ namespace practico4
         {
             ValidarSoloNumeros(e);
         }
-        
+
         private void BGenerarFuncion_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos()) return;
@@ -64,20 +64,98 @@ namespace practico4
 
         private void GenerarNumeros(int desde, int hasta)
         {
-            LlisaNumeros.Items.Clear();
+            LlistaNumeros.Items.Clear();
 
-         
             for (int i = desde; i <= hasta; i++)
             {
-                LlisaNumeros.Items.Add(i.ToString());
+                LlistaNumeros.Items.Add(i.ToString());
             }
         }
 
-        private void tBHasta_TextChanged(object sender, EventArgs e)
+        private void BNumerosPares_Click(object sender, EventArgs e)
         {
-
+            FiltrarNumeros("pares");
         }
 
-        
+        private void BNumerosImpares_Click(object sender, EventArgs e)
+        {
+            FiltrarNumeros("impares");
+        }
+
+        private void Numeros_Click(object sender, EventArgs e)
+        {
+            FiltrarNumeros("primos");
+        }
+
+        private void FiltrarNumeros(string tipo)
+        {
+            if (LlistaNumeros.Items.Count == 0)
+            {
+                MessageBox.Show("Primero genere números con 'Generar Función'", "Advertencia",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            List<string> numerosFiltrados = new List<string>();
+
+            foreach (var item in LlistaNumeros.Items)
+            {
+                if (int.TryParse(item.ToString(), out int numero))
+                {
+                    switch (tipo)
+                    {
+                        case "pares":
+                            if (numero % 2 == 0)
+                                numerosFiltrados.Add(numero.ToString());
+                            break;
+
+                        case "impares":
+                            if (numero % 2 != 0)
+                                numerosFiltrados.Add(numero.ToString());
+                            break;
+
+                        case "primos":
+                            if (EsPrimo(numero))
+                                numerosFiltrados.Add(numero.ToString());
+                            break;
+                    }
+                }
+            }
+
+            // Mostrar resultados - CON VALIDACIÓN
+            if (numerosFiltrados.Count == 0)
+            {
+                MessageBox.Show("No se encontraron números con el filtro aplicado",
+                               "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Opcional: Regenerar números originales o dejar vacío
+                GenerarNumeros(Convert.ToInt32(tBDesde.Text), Convert.ToInt32(tBHasta.Text));
+                return;
+            }
+
+            LlistaNumeros.Items.Clear();
+            LlistaNumeros.Items.AddRange(numerosFiltrados.ToArray());
+        }
+
+        // Función para detectar números primos
+        private bool EsPrimo(int numero)
+        {
+            // Casos especiales
+            if (numero <= 1) return false;
+            if (numero == 2) return true;
+            if (numero % 2 == 0) return false;
+
+            // Optimización: solo verificar hasta la raíz cuadrada
+            var limite = (int)Math.Sqrt(numero);
+
+            for (int i = 3; i <= limite; i += 2)
+            {
+                if (numero % i == 0)
+                    return false;
+            }
+
+            return true;
+        }
+
     }
 }
