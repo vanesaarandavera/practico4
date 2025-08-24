@@ -38,13 +38,15 @@
             BNumerosPares = new Button();
             BNumerosImpares = new Button();
             Numeros = new Button();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // LlistaNumeros
             // 
             LlistaNumeros.FormattingEnabled = true;
             LlistaNumeros.ItemHeight = 15;
-            LlistaNumeros.Location = new Point(288, 40);
+            LlistaNumeros.Location = new Point(225, 50);
             LlistaNumeros.Name = "LlistaNumeros";
             LlistaNumeros.Size = new Size(163, 229);
             LlistaNumeros.TabIndex = 0;
@@ -52,7 +54,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(288, 9);
+            label1.Location = new Point(225, 19);
             label1.Name = "label1";
             label1.Size = new Size(99, 15);
             label1.TabIndex = 1;
@@ -60,7 +62,7 @@
             // 
             // tBDesde
             // 
-            tBDesde.Location = new Point(89, 60);
+            tBDesde.Location = new Point(59, 30);
             tBDesde.Name = "tBDesde";
             tBDesde.Size = new Size(97, 23);
             tBDesde.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             // tBHasta
             // 
-            tBHasta.Location = new Point(89, 91);
+            tBHasta.Location = new Point(59, 64);
             tBHasta.Name = "tBHasta";
             tBHasta.Size = new Size(98, 23);
             tBHasta.TabIndex = 3;
@@ -77,7 +79,7 @@
             // lDesde
             // 
             lDesde.AutoSize = true;
-            lDesde.Location = new Point(32, 60);
+            lDesde.Location = new Point(14, 33);
             lDesde.Name = "lDesde";
             lDesde.Size = new Size(39, 15);
             lDesde.TabIndex = 4;
@@ -86,7 +88,7 @@
             // Hasta
             // 
             Hasta.AutoSize = true;
-            Hasta.Location = new Point(34, 94);
+            Hasta.Location = new Point(14, 67);
             Hasta.Name = "Hasta";
             Hasta.Size = new Size(37, 15);
             Hasta.TabIndex = 5;
@@ -95,7 +97,7 @@
             // BGenerarFuncion
             // 
             BGenerarFuncion.ForeColor = SystemColors.HotTrack;
-            BGenerarFuncion.Location = new Point(89, 146);
+            BGenerarFuncion.Location = new Point(29, 111);
             BGenerarFuncion.Name = "BGenerarFuncion";
             BGenerarFuncion.Size = new Size(111, 25);
             BGenerarFuncion.TabIndex = 6;
@@ -105,7 +107,7 @@
             // 
             // BNumerosPares
             // 
-            BNumerosPares.Location = new Point(91, 183);
+            BNumerosPares.Location = new Point(29, 142);
             BNumerosPares.Name = "BNumerosPares";
             BNumerosPares.Size = new Size(109, 22);
             BNumerosPares.TabIndex = 7;
@@ -115,7 +117,7 @@
             // 
             // BNumerosImpares
             // 
-            BNumerosImpares.Location = new Point(91, 218);
+            BNumerosImpares.Location = new Point(31, 170);
             BNumerosImpares.Name = "BNumerosImpares";
             BNumerosImpares.Size = new Size(109, 23);
             BNumerosImpares.TabIndex = 8;
@@ -125,7 +127,7 @@
             // 
             // Numeros
             // 
-            Numeros.Location = new Point(95, 254);
+            Numeros.Location = new Point(32, 199);
             Numeros.Name = "Numeros";
             Numeros.Size = new Size(108, 22);
             Numeros.TabIndex = 9;
@@ -133,25 +135,34 @@
             Numeros.UseVisualStyleBackColor = true;
             Numeros.Click += Numeros_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(lDesde);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(Numeros);
+            panel1.Controls.Add(LlistaNumeros);
+            panel1.Controls.Add(Hasta);
+            panel1.Controls.Add(BNumerosImpares);
+            panel1.Controls.Add(tBDesde);
+            panel1.Controls.Add(BNumerosPares);
+            panel1.Controls.Add(tBHasta);
+            panel1.Controls.Add(BGenerarFuncion);
+            panel1.Location = new Point(22, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(416, 327);
+            panel1.TabIndex = 10;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(518, 366);
-            Controls.Add(Numeros);
-            Controls.Add(BNumerosImpares);
-            Controls.Add(BNumerosPares);
-            Controls.Add(BGenerarFuncion);
-            Controls.Add(Hasta);
-            Controls.Add(lDesde);
-            Controls.Add(tBHasta);
-            Controls.Add(tBDesde);
-            Controls.Add(label1);
-            Controls.Add(LlistaNumeros);
+            Controls.Add(panel1);
             Name = "Form1";
             Text = "Formulario4";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -166,5 +177,6 @@
         private Button BNumerosPares;
         private Button BNumerosImpares;
         private Button Numeros;
+        private Panel panel1;
     }
 }
